@@ -1,0 +1,179 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+  
+/* config. do body */
+body {
+  background-color: #D2B48C;
+  font-family: 'Noto Sans', sans-serif;
+  margin: 0 auto;
+}
+
+:root {
+  --bg1:  #6E260E ;
+  --bg2: rgba(255, 255, 255, 0.5);
+  --bt:      #A0522D  ;
+  --bt-h:    #F5DEB3  ;
+  --header: #D2B48C;
+  --receita: #6F4E37;
+}
+  
+/* Tirando decoração das listas não ordenadas */
+ul {
+  list-style: none;
+}
+
+/* ingredientes */
+.ing h2 {
+  margin: 10px 0;
+  text-align: center;
+}
+.ing h2, ul {
+  letter-spacing: 0.25px;
+  word-spacing: 3px;
+  color: var(--receita);
+}
+
+/* modo de preparo */
+.pre h2 {
+  margin: 10px 0;
+  text-align: center;
+}
+.pre h2, ol {
+  letter-spacing: 0.25px;
+  word-spacing: 3px;
+  color: var(--receita);
+}
+
+/* telas com 500px de largura */
+@media (max-width: 999px){
+
+  /* cabeçalho */
+  .header {
+    width: 100%;
+    height: 3em;
+    padding: 20px;
+    background-color: var(--bg1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--header);
+  }
+
+  /* conteúdo */
+  .main {
+    width: 100%;
+    background-color: var(--bg2);
+    padding: 2em;
+  }
+
+  /* ingredientes */
+  .ing ul {
+    margin: 1em 2em;
+  }
+
+  /* modo de preparo */
+  .pre ol {
+    margin: 1em 2em;
+  }
+
+  /* imagem */
+  .img img {
+    width: 100%;
+  }
+
+  /* receita */
+  .rec {
+    margin: 0 auto;
+  }
+}
+
+/* telas com 1000px */
+@media (min-width: 1000px) {
+  /* cabeçalho */
+  .header {
+    width: 100%;
+    height: 4.5em;
+    background-color: var(--bg1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px;
+    margin-bottom: 0.5em;
+    color:  var(--header);
+
+    box-shadow: 5px 0 7px black;
+  }
+
+  /* conteúdo */
+  .rec {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: 
+    "ing pre"
+    "img img"
+    ;
+
+    width: 800px;
+    margin: 0 auto;
+    background-color: var(--bg2);
+    padding: 2em;
+    box-shadow: 0.5px 0.5px 7.5px black;
+    border-radius: 7.5px;
+
+  }
+  .ing {
+    grid-area: ing;
+  }
+  .pre {
+    grid-area: pre;
+  }
+  img {
+    grid-area: img;
+  }
+
+  /* imagem */
+  img {
+    width: 100%;
+    margin: 1.5em auto 0;
+  }
+
+}
+
+/* Menu */
+.header a {
+  text-decoration: none;
+  color: white;
+}
+
+.header ul li ul {
+  position: absolute;
+  display: none;
+  transition: display 500ms;
+}
+
+.header ul li:hover ul {
+  position: absolute;
+  margin-top: 2.5px;
+  top: 1;
+  left: 1;
+  display: block;
+}
+
+/* botões do menu */
+.header ul li ul li {
+  height: 2em;
+  width: 200px;
+  line-height: 2em;
+  text-align: center;
+  background-color:  var(--bt) ;
+  transition: background-color 500ms;
+  transition: color 250ms;
+}
+
+.header ul li ul li:hover {
+  background-color: var(--bt-h);
+  color: black
+}
